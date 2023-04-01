@@ -30,11 +30,15 @@ router.post("/create/" , async(req , res) => {
 });
 
 
-router.post("/search/" , async(req , res) => {
-    const classres = await Class.findOne({code : req.body.code}).clone();
+router.get("/search/" , async(req , res) => {
+    console.log(req.query.code)
+    const classres = await Class.findOne({code : req.query.code}).clone();
     if(classres == null)
-        res.status(500).send("No such class");
-    else res.status(200).send(classres);
+        return res.status(500).send("No such class");
+    else{
+        await classres.populate('teams');
+        return res.status(200).send(classres);
+    }
 });
 
 router.post("/enrol/", async(req, res) => {

@@ -14,7 +14,11 @@ const ClassSchema = new Schema({
     students : {
         type : [mongoose.Schema.Types.Mixed] , 
         required : false
+    },
+    teams : {
+        type : [{ type : Schema.Types.ObjectId, ref : 'team'}]
     }
+    
 } , {timestamps : true});
 
 const Classes = mongoose.model('class' , ClassSchema);

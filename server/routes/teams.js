@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Team = require('../models/team')
+const Class = require('../models/class')
 
 router.get('/', async function(req, res){
     let team = await Team.findById(req.query.id).clone();
@@ -31,6 +32,12 @@ router.post('/', async function(req, res){
     });
 
     await team.save();
+    
+    await Class.findByIdAndUpdate(
+        req.body.class,
+        {$push: {teams : team}}
+    );
+    
     return res.status(200).send("Team created successfully!");
 });
 
