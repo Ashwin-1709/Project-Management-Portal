@@ -7,6 +7,11 @@ const teamSchema = Schema({
         required : true
     },
 
+    projectName : {
+        type : String,
+        required : true
+    },
+
     class : {
         type : Schema.Types.ObjectId,
         ref : 'class',

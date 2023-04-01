@@ -13,6 +13,7 @@ app.use(cors(corsOptions));
 const teacher = require("./routes/teacher.js");
 const classes = require("./routes/class.js");
 const student = require("./routes/student.js");
+const team = require("./routes/teams.js")
 
 var util = require('util');
 require('dotenv').config()
@@ -25,6 +26,7 @@ app.use(logger("dev"));
 app.use("/teacher" , teacher);
 app.use("/class" , classes);
 app.use("/student", student)
+app.use("/team", team)
 
 var encoder = new util.TextEncoder('utf-8');
 
