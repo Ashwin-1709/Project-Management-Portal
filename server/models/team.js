@@ -26,7 +26,10 @@ const teamSchema = Schema({
 
     members : {
         type : [{ type : Schema.Types.ObjectId, ref : 'student'}]
-    }
+    },
+    tasks : {
+        type : [{ type : Schema.Types.ObjectId, ref : 'task'}]
+    }   
 }, {timestamps:true});
 
 const Team = mongoose.model('team', teamSchema);

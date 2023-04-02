@@ -14,6 +14,7 @@ const teacher = require("./routes/teacher.js");
 const classes = require("./routes/class.js");
 const student = require("./routes/student.js");
 const team = require("./routes/teams.js")
+const task = require("./routes/task.js")
 
 var util = require('util');
 require('dotenv').config()
@@ -27,6 +28,7 @@ app.use("/teacher" , teacher);
 app.use("/class" , classes);
 app.use("/student", student)
 app.use("/team", team)
+app.use("/task" , task)
 
 var encoder = new util.TextEncoder('utf-8');
 
