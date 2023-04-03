@@ -20,8 +20,7 @@ const TeacherSchema = new Schema({
         required : true
     } ,
     courses : {
-        type : [mongoose.Schema.Types.Mixed] , 
-        required : false
+        type : [{ type : Schema.Types.ObjectId, ref : 'class'}]
     }
 } , {timestamps : true});
 

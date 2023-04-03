@@ -12,8 +12,7 @@ const ClassSchema = new Schema({
         required:  true
     } , 
     students : {
-        type : [mongoose.Schema.Types.Mixed] , 
-        required : false
+        type : [{ type : Schema.Types.ObjectId, ref : 'student'}]
     },
     teams : {
         type : [{ type : Schema.Types.ObjectId, ref : 'team'}]

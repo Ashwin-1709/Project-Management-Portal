@@ -20,8 +20,7 @@ const StudentSchema = new Schema({
         required : false
     } ,
     courses : {
-        type : [mongoose.Schema.Types.Mixed] , 
-        required : false
+        type : [{ type : Schema.Types.ObjectId, ref : 'class'}]
     }
 } , {timestamps : true});
 
