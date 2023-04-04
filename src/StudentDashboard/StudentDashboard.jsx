@@ -12,11 +12,11 @@ function StudentDashboard() {
     const [classCards, setClassCards] = useState(null);
 
     const fetchClasses = async () => {
-        await axios.post("http://project-management-portal-server.vercel.app/student/classes", {
+        await axios.post("https://project-management-portal-server.vercel.app/student/classes", {
             email: student.token.email
         }).then((res) => {
             if (res.status === 200) {
-                let courses = res.data;
+                let courses = res.data.courses;
                 let cards = [];
                 courses.forEach(course => {
                     cards.push(

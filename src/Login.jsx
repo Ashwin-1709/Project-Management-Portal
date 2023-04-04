@@ -48,7 +48,7 @@ function Login() {
   const handleSubmit = async () => {
     console.log(email, password, role);
     if (role === "Student") {
-      await axios.post('http://project-management-portal-server.vercel.app/student/login', {
+      await axios.post('https://project-management-portal-server.vercel.app/student/login', {
         email: email,
         password: password
       }).then((res) => {
@@ -65,7 +65,7 @@ function Login() {
       })
     }
     else if (role === "Teacher") {
-      await axios.post('http://project-management-portal-server.vercel.app/teacher/login', {
+      await axios.post('https://project-management-portal-server.vercel.app/teacher/login', {
         email: email,
         password: password
       }).then((res) => {

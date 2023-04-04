@@ -17,7 +17,7 @@ function TeacherDashboard() {
             email: teacher.token.email
         }).then((res) => {
             if (res.status === 200) {
-                let courses = res.data;
+                let courses = res.data.courses;
                 let cards = [];
                 courses.forEach(course => {
                     cards.push(

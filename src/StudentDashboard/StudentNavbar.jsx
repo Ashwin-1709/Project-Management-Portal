@@ -47,7 +47,7 @@ function StudentNavbar({ stateChanger }) {
   };
 
   const enrol = async () => {
-    await axios.post("http://project-management-portal-server.vercel.app/class/enrol", {
+    await axios.post("https://project-management-portal-server.vercel.app/class/enrol", {
       code: classCode,
       email: student.token.email
     }).then((res) => {
@@ -75,9 +75,8 @@ function StudentNavbar({ stateChanger }) {
   }
 
   const joinClass = async () => {
-    await axios.post("http://project-management-portal-server.vercel.app/class/search", {
-      code: classCode
-    }).then((res) => {
+    await axios.get(`https://project-management-portal-server.vercel.app/class/search?code=${classCode}`)
+      .then((res) => {
       if (res.status === 200) {
         enrol();
       }

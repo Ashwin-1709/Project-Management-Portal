@@ -47,7 +47,7 @@ function Register() {
       setMsg("Please fill out all fields!");
     }
     else if (role === "Student") {
-      await axios.post('http://project-management-portal-server.vercel.app/student/register', {
+      await axios.post('https://project-management-portal-server.vercel.app/student/register', {
         name: name,
         email: email,
         password: password,
@@ -70,7 +70,7 @@ function Register() {
       })
     }
     else if (role === "Teacher") {
-      await axios.post('http://project-management-portal-server.vercel.app/teacher/register', {
+      await axios.post('https://project-management-portal-server.vercel.app/teacher/register', {
         name: name,
         email: email,
         password: password,

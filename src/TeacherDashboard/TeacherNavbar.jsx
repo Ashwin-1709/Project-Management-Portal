@@ -57,7 +57,7 @@ function TeacherNavbar({ stateChanger }) {
       setMsg("Please enter valid class code and title!");
     }
     else {
-      await axios.post("http://project-management-portal-server.vercel.app/class/create", {
+      await axios.post("https://project-management-portal-server.vercel.app/class/create", {
         email: teacher.token.email,
         title: classTitle,
         code: classCode
