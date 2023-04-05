@@ -67,7 +67,7 @@ router.post("/students/" , async(req , res) => {
         res.status(500).send("No such class");
     else {
         console.log(classres.students);
-        classres.populate('students');
+        await classres.populate('students');
         res.status(200).send(classres);
     }
 });

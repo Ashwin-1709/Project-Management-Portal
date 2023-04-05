@@ -75,4 +75,15 @@ router.post("/classes" , async function(req , res) {
     return res.status(200).send(teacherObj);
 });
 
+router.get("/class/" , async(req , res) => {
+    const classres = await Classes.findById(req.query.id).clone();
+    if(classres == null)
+        res.status(500).send("No such class");
+    else {
+        await classres.populate('students');
+        await classres.populate('teams');
+        return res.status(200).send(classres);
+    }
+});
+
 module.exports = router;    
