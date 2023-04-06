@@ -22,7 +22,7 @@ function TeacherDashboard() {
                 courses.forEach(course => {
                     cards.push(
                     <Grid item xs={6} md={3}>
-                        <TeacherCard clName={course.title} clCode={course.code} />
+                        <TeacherCard id={course._id} clName={course.title} clCode={course.code} />
                     </Grid>)
                 });
                 setTeacherCards(cards);

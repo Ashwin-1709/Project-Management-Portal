@@ -21,7 +21,7 @@ function StudentDashboard() {
                 courses.forEach(course => {
                     cards.push(
                         <Grid item xs={6} md={3}>
-                            <ClassCard clCode={course.code} clName={course.title} />
+                            <ClassCard id={course._id} clCode={course.code} clName={course.title} />
                         </Grid>
                     )
                 });

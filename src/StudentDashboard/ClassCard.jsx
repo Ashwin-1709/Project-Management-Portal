@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const { Card, CardContent, Typography } = require("@mui/material");
 
-function ClassCard( {clName, clCode} ) {
-    let link = "/teams/" + clCode;
+function ClassCard( {id, clName, clCode} ) {
+    let link = "/class?id=" + id;
     return (
         <Link to={link}>
             <Card variant="elevation" style={{height: '175%', backgroundColor: "#5ad1b5"}} raised>
