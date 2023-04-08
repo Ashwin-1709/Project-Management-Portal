@@ -21,6 +21,9 @@ const StudentSchema = new Schema({
     } ,
     courses : {
         type : [{ type : Schema.Types.ObjectId, ref : 'class'}]
+    } ,
+    teams : {
+        type : [{ type : Schema.Types.ObjectId, ref : 'team'}]
     }
 } , {timestamps : true});
 

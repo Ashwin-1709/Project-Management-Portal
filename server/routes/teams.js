@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Team = require('../models/team')
 const Class = require('../models/class')
+const Student = require('../models/student')
 
 router.get('/', async function(req, res){
     let team = await Team.findById(req.query.id).clone();
@@ -36,6 +37,11 @@ router.post('/', async function(req, res){
     
     await Class.findByIdAndUpdate(
         req.body.class,
+        {$push: {teams : team}}
+    );
+
+    await Student.findByIdAndUpdate(
+        req.body.manager,
         {$push: {teams : team}}
     );
     

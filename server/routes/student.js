@@ -49,6 +49,12 @@ router.post("/profile" , async function(req , res) {
     }
 });
 
+router.get("/teams/" , async function(req , res) {
+    let studentObj = await Student.findById(req.query.id).clone();
+    await studentObj.populate('teams');
+    return res.status(200).send(studentObj);
+});
+
 
 router.post("/classes" , async function(req , res) {
     let studentObj = await Student.findOne({email : req.body.email}).clone().populate("courses");
