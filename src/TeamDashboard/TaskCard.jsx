@@ -11,25 +11,27 @@ import {
 import { Link } from '@mui/material';
 import './TaskCard.css';
 
-export default function TaskCard() {
+export default function TaskCard( {taskTitle, taskStatus, taskDeadline} ) {
+  let map = new Map();
+  map.set("finished", "#81c784");
+  map.set("in progress", "#ffa726");
+  map.set("not started", "#e57373");
+
   return (
-    <Link to={'../src/StudentDashboard'} style={{textDecoration:'none'}}>
     <MDBCard className='taskcard'>
       <MDBRow className='g-0'>
-        <MDBCol md='1' style={{backgroundColor:'#00bdff'}}>
+        <MDBCol md='1' style={{backgroundColor: map.get(taskStatus)}}>
             
         </MDBCol>
         <MDBCol md='8'>
           <MDBCardBody>
-            <MDBCardTitle>Task 1</MDBCardTitle>
+            <MDBCardTitle>{taskTitle}</MDBCardTitle>
             <MDBCardText style={{color:'GrayText'}}>
-              This is a wider card with supporting text below as a natural lead-in to additional content. This
-              content is a little bit longer.
+              Deadline: {taskDeadline}
             </MDBCardText>
           </MDBCardBody>
         </MDBCol>
       </MDBRow>
     </MDBCard>
-    </Link>
   );
 }

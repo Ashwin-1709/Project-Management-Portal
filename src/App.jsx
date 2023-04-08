@@ -9,6 +9,7 @@ import TeacherDashboard from './TeacherDashboard/TeacherDashboard';
 import ClassDashboard from './ClassDashboard/ClassDashboard';
 import AuthContext from './AuthContext';
 import { useReducer, useContext, useEffect } from 'react';
+import TeamDashboard from './TeamDashboard/TeamDashboard';
 
 const App = () => {
   const {student, setStudent, teacher, setTeacher} = useContext(AuthContext);
@@ -42,6 +43,7 @@ const App = () => {
           {teacher && !!teacher.token ? <TeacherDashboard/> : <Redirect to={"/login"}/>}
         </Route>
         <Route path="/class"><ClassDashboard/></Route>
+        <Route path="/team"><TeamDashboard/></Route>
       </Switch>
     </Router>
     
