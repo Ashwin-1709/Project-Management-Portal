@@ -8,6 +8,7 @@ router.get('/', async function(req, res){
     await team.populate('class');
     await team.populate('manager')
     await team.populate('members');
+    await team.populate('tasks');
     return res.status(200).send(team);
 });
 
